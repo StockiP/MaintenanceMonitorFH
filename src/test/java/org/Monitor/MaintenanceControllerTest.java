@@ -9,6 +9,8 @@ import javax.ws.rs.core.Response;
 
 public class MaintenanceControllerTest {
 
+
+    //this test is checking to see if getStatus is returning the right response.
     @Test
     public void Test_getStatusString_shouldReturnDash(){
         MaintenanceController controller = new MaintenanceController();
@@ -16,6 +18,8 @@ public class MaintenanceControllerTest {
         String response = controller.getStatus().getEntity().toString();
         Assertions.assertEquals("-", response);
     }
+
+    //this test is checking if the right responsecode is returned.
     @Test
     public void Test_getStatus_shouldReturnOk(){
         //Arrange
@@ -25,6 +29,8 @@ public class MaintenanceControllerTest {
         //Assert
         Assertions.assertEquals("OutboundJaxrsResponse{status=200, reason=OK, hasEntity=true, closed=false, buffered=false}", response);
     }
+
+    //this test is checking if status can be set.
     @Test
     public void Test_setStatus_shouldreturnsentStatus(){
 
@@ -32,6 +38,8 @@ public class MaintenanceControllerTest {
         String response = controller.setStatus("+");
         Assertions.assertEquals("+", response);
     }
+
+    //this test is testing a null value and the behaviour
     @Test
     public void Test_setStatusNull_shouldReturnPrevStatus(){
         MaintenanceController controller = new MaintenanceController();
