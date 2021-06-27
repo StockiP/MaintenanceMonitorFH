@@ -1,3 +1,4 @@
+//region imports
 package org.Monitor;
 
 import com.sun.tools.javac.Main;
@@ -6,9 +7,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import javax.ws.rs.core.Response;
+//endregion
 
 public class MaintenanceControllerTest {
-
 
     //this test is checking to see if getStatus is returning the right response.
     @Test
@@ -27,7 +28,9 @@ public class MaintenanceControllerTest {
         //Act
         String response = controller.getStatus().toString();
         //Assert
-        Assertions.assertEquals("OutboundJaxrsResponse{status=200, reason=OK, hasEntity=true, closed=false, buffered=false}", response);
+        Assertions.assertEquals(
+                "OutboundJaxrsResponse{status=200, reason=OK, hasEntity=true, closed=false, buffered=false}",
+                response);
     }
 
     //this test is checking if status can be set.
