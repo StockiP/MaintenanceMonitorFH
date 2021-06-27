@@ -12,13 +12,7 @@ import javax.ws.rs.core.Response;
 public class MaintenanceControllerTest {
 
     //this test is checking to see if getStatus is returning the right response.
-    @Test
-    public void Test_getStatusString_shouldReturnDash(){
-        MaintenanceController controller = new MaintenanceController();
-        controller.setStatus("-");
-        String response = controller.getStatus().getEntity().toString();
-        Assertions.assertEquals("-", response);
-    }
+
 
     //this test is checking if the right responsecode is returned.
     @Test
@@ -33,14 +27,15 @@ public class MaintenanceControllerTest {
                 response);
     }
 
-    //this test is checking if status can be set.
     @Test
-    public void Test_setStatus_shouldreturnsentStatus(){
-
+    public void Test_getStatusString_shouldReturnDash(){
         MaintenanceController controller = new MaintenanceController();
-        String response = controller.setStatus("+");
-        Assertions.assertEquals("+", response);
+        controller.setStatus("-");
+        String response = controller.getStatus().getEntity().toString();
+        Assertions.assertEquals("-", response);
     }
+
+
 
     //this test is testing a null value and the behaviour
     @Test
@@ -49,5 +44,14 @@ public class MaintenanceControllerTest {
         controller.setStatus("-");
         String response = controller.setStatus(null);
         Assertions.assertEquals("-", response);
+    }
+
+    //this test is checking if status can be set.
+    @Test
+    public void Test_setStatus_shouldreturnsentStatus(){
+
+        MaintenanceController controller = new MaintenanceController();
+        String response = controller.setStatus("+");
+        Assertions.assertEquals("+", response);
     }
 }
